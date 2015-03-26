@@ -27,38 +27,34 @@ cel = {
 
     keys: {}, //for keypresses
     
-    gravity: 2, //Z px/second/second
+    gravity: 2, //Z px/second/second - not added
     defaultMass: 5, //default mass
+	defaultFriction: 0.9,
 
-    Body: function (type, x, y, size, xV, yV, friction, color, mass, draggable) { //create new entities
+    Body: function (properties) { //create new entities
         /*
-            type is in allowedTypes
-            x, y, and size can be any #
-            xV and yV default to 0 but are #s
-            color is hex or rgba, defaults to black
-            mass is # but defaults to 5
-            draggable is bool, defaults to false
+            required:
+				type
+				x
+				y
+				size
         */
-        allowedTypes = ['circle', 'square']; //radius, side length, 
-        mass = mass || cel.defaultMass;
-        draggable = draggable || false;
-        color = color || '#000000';
-        xV = xV || 0;
-        yV = yV || 0;
-        friction = friction || 0.98;
+        allowedTypes = ['circle', 'square'];
 
-        if (allowedTypes.indexOf(type) == -1) {
+        if (allowedTypes.indexOf(properties.type) == -1) {
             type = 'circle';
         }
 
-        this.type = type;
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.mass = mass;  //yes, mass will make things fall faster (or 0 if not at all)...
-        this.draggable = draggable;
-        this.color = color;
-        this.friction = friction;
+        this.type = properties.type;
+        this.x = properties.x;
+        this.y = properties.y;
+        this.size = properties.size;
+        this.mass = properties.mass || cel.defaultMass;  //yes, mass will make things fall faster (or 0 if not at all)...
+        this.draggable = properties.draggable || false;
+        this.color = properties.color || '#000000';
+        this.friction = properties.friction || cel.defaultFriction;
+		this.xV = properties.xV || 0;
+		this.yV = properties.yV || 0;
         
         this.setLinearVelocity = function(xV, yV) {
             this.xV = xV;
@@ -109,18 +105,17 @@ cel = {
             this.yV *= this.friction;
             this.xV *= this.friction;
         }
-
-        //cel.bodies.push(this);
+		
     },
 
-    updateAll: function (ctx, arr) { //update with regard to context
+    updateAll: function (ctx, arr) { //update all bodies in an array with regard to context
         for (var i = 0; i < arr.length; i++) {
             arr[i].update(ctx);
         }
     },
 
     clear: function (canvas, ctx) {
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
 };
