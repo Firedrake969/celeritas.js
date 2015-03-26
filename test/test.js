@@ -1,5 +1,3 @@
-$(function() {
-
 canvas = document.getElementById('canvas');
 ctx = canvas.getContext('2d');
 
@@ -24,5 +22,3 @@ setTimeout(function() {
 	console.log(ball);
 	ball.applyLinearForce(5, 5);
 }, 1000);
-
-});
