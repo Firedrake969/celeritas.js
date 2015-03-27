@@ -67,7 +67,7 @@ cel = {
                 dir = Math.PI/180;
             }
             this.xV = Math.cos(dir) * vel;
-            this.yV = Math.sin(dir) * vel;
+            this.yV = -Math.sin(dir) * vel;
         }
         
         this.applyLinearForce = function(xV, yV) {
@@ -82,7 +82,7 @@ cel = {
             }
             
             this.xV += Math.cos(dir) * vel;
-            this.yV += Math.sin(dir) * vel;
+            this.yV += -Math.sin(dir) * vel;
         },
             
         this.update = function(ctx) {
