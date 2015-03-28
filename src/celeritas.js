@@ -37,9 +37,9 @@ cel = {
 				type
 				x
 				y
-				size
+				size (or height and width if rectangle)
         */
-        allowedTypes = ['circle', 'square'];
+        allowedTypes = ['circle', 'square', 'rectangle', 'rect'];
 
         if (allowedTypes.indexOf(properties.type) == -1) {
             type = 'circle';
@@ -48,7 +48,12 @@ cel = {
         this.type = properties.type;
         this.x = properties.x;
         this.y = properties.y;
-        this.size = properties.size;
+		if (properties.type == 'rectangle' || properties.type == 'rect') {
+			this.height = properties.height;
+			this.width = properties.width;
+		} else {
+			this.size = properties.size;
+		}
         this.mass = properties.mass || cel.defaultMass;  //yes, mass will make things fall faster (or 0 if not at all)...
         this.draggable = properties.draggable || false;
         this.color = properties.color || '#000000';
@@ -110,7 +115,7 @@ cel = {
 
     updateAll: function (ctx, arr) { //update all bodies in an array with regard to context
         for (var i = 0; i < arr.length; i++) {
-            arr[i].update(ctx);
+			arr[i].update(ctx);
         }
     },
 
