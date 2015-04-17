@@ -1,24 +1,58 @@
 canvas = document.getElementById('canvas');
 ctx = canvas.getContext('2d');
 
-var ball = new cel.Body(
-	{
-		x:25,
-		y:25,
-		size:25,
-		type:'circle',
-		xV:5,
-		yV:2.5
-	}
-);
+var ball1 = new cel.Body({
+    x: 25,
+    y: 25,
+    size: 10,
+    mass:0.000001,
+    type: 'square'
+});
+
+var ball2 = new cel.Body({
+    x: 30,
+    y: 250,
+    size: 10,
+    mass:0.0000001,
+    type: 'circle'
+});
+
+console.log(ball1.isTouching(ball2));
+ball1.update(ctx);
+ball2.update(ctx);
+var touching = false;
+
+setInterval(function () {
+    if (!touching) {
+        touching = ball1.isTouching(ball2);
+        cel.clear(canvas, ctx);
+        ball1.update(ctx);
+        ball2.update(ctx);
+        ball1.y += 1;
+        ball2.y -= 1;
+    }
+}, 10);
+setTimeout(function () {
+    console.log(ball1, ball2);
+}, 1000);
+
+/*var ball = new cel.Body({
+    x: 25,
+    y: 25,
+    height: 25,
+    width: 10,
+    type: 'rect',
+    xV: 10,
+    yV: 5
+});
 
 console.log(ball);
 
-setInterval(function() {
-	cel.clear(canvas, ctx);
-	ball.update(ctx);
+setInterval(function () {
+    cel.clear(canvas, ctx);
+    ball.update(ctx);
 }, 10);
-setTimeout(function() {
-	console.log(ball);
-	ball.applyLinearForce(5, 5);
-}, 1000);
+setTimeout(function () {
+    console.log(ball);
+    ball.applyLinearForce(5, 5);
+}, 1000);*/
