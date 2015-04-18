@@ -4,23 +4,14 @@
     
 \*==============================================================*/
 
-/*
-    Script expectations:
-    
-    jQuery  (only needed for keypresses)
-    
-    canvas = document.getElementById('id of your canvas');
-    ctx = canvas.getContext('2d'); (ctx is context)
-    
-    some sort of array to store bodies in (not required)
-*/
-
-$(document).keydown(function (e) {
+document.addEventListener("keydown", function (e) {
     cel.keys[e.which] = true;
+	console.log(cel.keys);
 });
 
-$(document).keyup(function (e) {
+document.addEventListener("keyup", function (e) {
     delete cel.keys[e.which];
+	console.log(cel.keys);
 });
 
 cel = {
