@@ -4,22 +4,20 @@ ctx = canvas.getContext('2d');
 var ball1 = new cel.Body({
     x: 25,
     y: 25,
-    size: 10,
+    height:10,
+	width:25,
     mass:0.000001,
-    type: 'square'
+    type: 'rect'
 });
 
 var ball2 = new cel.Body({
     x: 30,
     y: 250,
-    size: 10,
+    size:25,
     mass:0.0000001,
-    type: 'circle'
+    type: 'square'
 });
 
-console.log(ball1.isTouching(ball2));
-ball1.update(ctx);
-ball2.update(ctx);
 var touching = false;
 
 setInterval(function () {

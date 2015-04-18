@@ -117,15 +117,86 @@ cel = {
                         var dx=distX-obj1.size/2;
                         var dy=distY-obj1.size/2;
                         return (dx*dx+dy*dy<=(obj2.size * obj2.size));
-                        
+						
                     case 'rect':  //let it fall through to synonym
                         case 'rectangle':
-                        
-                        break;
+							var distX = Math.abs(obj2.x - obj1.x);
+							var distY = Math.abs(obj2.y - obj1.y);
+						
+							if (distX > (obj1.width/2 + obj2.size)) { return false; }
+							if (distY > (obj1.height/2 + obj2.size)) { return false; }
+						
+							if (distX <= (obj1.width/2)) { return true; } 
+							if (distY <= (obj1.height/2)) { return true; }
+						
+							var dx=distX-obj1.width/2;
+							var dy=distY-obj1.height/2;
+							return (dx*dx+dy*dy<=(obj2.size * obj2.size));
                     default:
                         break;
                 }
             }
+			
+			function squareCollide(obj1, obj2) {  //obj1 is unknown, obj2 is square
+                switch(obj1.type) {
+                    case "circle":
+                        var distX = Math.abs(obj1.x - obj2.x);
+                        var distY = Math.abs(obj1.y - obj2.y);
+                    
+                        if (distX > (obj2.size/2 + obj1.size)) { return false; }
+                        if (distY > (obj2.size/2 + obj1.size)) { return false; }
+                    
+                        if (distX <= (obj2.size/2)) { return true; } 
+                        if (distY <= (obj2.size/2)) { return true; }
+                    
+                        var dx=distX-obj2.size/2;
+                        var dy=distY-obj2.size/2;
+                        return (dx*dx+dy*dy<=(obj1.size * obj1.size));
+                    case "square":  //http://stackoverflow.com/questions/8017541/javascript-canvas-collision-detection
+						var x1 = obj1.x;
+						var x2 = obj2.x;
+						var y1 = obj1.y;
+						var y2 = obj2.y;
+						var size1 = obj1.size/2;
+						var size2 = obj2.size/2;
+						
+						var bottom1, bottom2, left1, left2, right1, right2, top1, top2;
+						left1 = x1 - size1;
+						right1 = x1 + size1;
+						top1 = y1 - size1;
+						bottom1 = y1 + size1;
+						left2 = x2 - size2;
+						right2 = x2 + size2;
+						top2 = y2 - size2;
+						bottom2 = y2 + size2;
+						return !(left1 > right2 || left2 > right1 || top1 > bottom2 || top2 > bottom1);
+                    case "rectangle":
+                        case "rect":  //let it fall through
+							var x1 = obj1.x;
+							var x2 = obj2.x;
+							var y1 = obj1.y;
+							var y2 = obj2.y;
+							var height1 = obj1.height/2;
+							var height2 = obj2.size/2;
+							var width1 = obj1.width/2;
+							var width2 = obj2.size/2;
+							
+							var bottom1, bottom2, left1, left2, right1, right2, top1, top2;
+							left1 = x1 - width1;
+							right1 = x1 + width1;
+							top1 = y1 - height1;
+							bottom1 = y1 + height1;
+							left2 = x2 - width2;
+							right2 = x2 + width2;
+							top2 = y2 - height2;
+							bottom2 = y2 + height2;
+							return !(left1 > right2 || left2 > right1 || top1 > bottom2 || top2 > bottom1);
+                }
+            }
+			
+			//note for squareCollide - maybe be the same as rectCollide but pass obj1.height/width as obj1.size or whatever?
+			//consider this...
+			//first finish both methods though
             
             switch(other.type) {
                 case 'circle':

@@ -13,4 +13,7 @@ The library is designed for easy use for any JavaScript level of expertise.  As 
 ### Documentation
 No documentation yet.  It will be put in the wiki or gh-pages when I get around to beginning it.
 
+## Notes
+Code with commented links means that I adapted code from StackOverflow.  If you're the original author, feel free to contact me to remove the section of code - I will replace it with something achieving the same purpose but (hopefully) different enough.
+
 Last updated 4/18/2015.
