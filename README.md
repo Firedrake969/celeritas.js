@@ -9,8 +9,8 @@ celeritas.js is a JavaScript library designed for easy 2D game development on th
 Rather than being something like [Box2D.js](https://github.com/kripken/box2d.js/) or [PhysicsJS](http://wellcaffeinated.net/PhysicsJS/), celeritas.js aims to be an easy way to create games in JavaScript and HTML5, especially for beginners.
 
 ## Features
-The library is designed for easy use for any JavaScript level of expertise.  As such, objects created by it have intuitive function properties (e.g. `setLinearVelocity(xV, yV)`).  As this project gets older, we plan to create more advanced features.
+The library is designed for easy use for any JavaScript level of expertise.  As such, objects created by it have intuitive function properties (e.g. `Body.prototype.setLinearVelocity(xV, yV)`).  As this project gets older, we plan to create more advanced features.
 ### Documentation
-No documentation yet.
+No documentation yet.  It will be put in the wiki or gh-pages when I get around to beginning it.
 
 Last updated 4/18/2015.
