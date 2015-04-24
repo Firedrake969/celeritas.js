@@ -4,17 +4,16 @@ ctx = canvas.getContext('2d');
 var ball1 = new cel.Body({
     x: 25,
     y: 25,
-    height:10,
-	width:25,
-    mass:0.000001,
-    type: 'rect'
+    size:15,
+    //mass:0,
+    type: 'circle'
 });
 
 var ball2 = new cel.Body({
     x: 30,
     y: 250,
-    size:25,
-    mass:0.0000001,
+    size:15,
+    mass:0,
     type: 'square'
 });
 
@@ -43,9 +42,7 @@ setTimeout(function () {
     xV: 10,
     yV: 5
 });
-
 console.log(ball);
-
 setInterval(function () {
     cel.clear(canvas, ctx);
     ball.update(ctx);
