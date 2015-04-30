@@ -130,7 +130,7 @@ cel = {
                     default:
                         break;
                 }
-            
+            }
             
             function rectCollide(body1, body2, isRect) {  //obj
                 isRect = typeof isRect !== 'undefined' ?  isRect : true;
