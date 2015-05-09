@@ -18,7 +18,7 @@ cel = {
 
     keys: {}, //for keypresses
 
-    gravity: 9.8, //Z px/second/second - not added
+    gravity: {x:1, y:9.8}, //Z px/second/second - not added
     defaultMass: 1, //default mass
     defaultFriction: 0.9,
     
@@ -239,7 +239,8 @@ cel = {
             this.y += this.yV;
             this.yV *= this.friction;
             this.xV *= this.friction;
-            this.yV += this.mass * cel.gravity * 0.1;
+            this.yV += this.mass * cel.gravity.y * 0.05;
+			this.xV += this.mass * cel.gravity.x * 0.05;
         };
 
     },

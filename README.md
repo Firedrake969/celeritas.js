@@ -20,9 +20,10 @@ The library is designed for easy use for any JavaScript level of expertise.  As 
 - Gravity
 - Velocity
 - Body update
+- Directional gravity
 
 ### Planned Features
-- Nothing yet - suggest some in the [Issues](https://github.com/Firedrake969/celeritas.js/issues)!
+- Suggest some in the [Issues](https://github.com/Firedrake969/celeritas.js/issues)!
 
 ### Documentation
 No documentation yet.  It will be put in the wiki or gh-pages when I get around to beginning it.
