@@ -35,30 +35,34 @@ cel = {
 				size (or height and width if rectangle) (radius for circles)
         */
         allowedTypes = ['circle', 'square', 'rectangle', 'rect'];
-
         if (allowedTypes.indexOf(properties.type) == -1) {
             type = 'circle';
         }
-
         this.type = properties.type;
+		
         this.x = properties.x;
         this.y = properties.y;
+		
         if (properties.type == 'rectangle' || properties.type == 'rect') {
             this.height = properties.height;
             this.width = properties.width;
         } else {
             this.size = properties.size;
         }
+		
         if (properties.mass !== 0) { //yes, mass will make things fall faster (or 0 if not at all)...
             this.mass = properties.mass || cel.defaultMass;
         } else {
             this.mass = 0;
         }
-        this.draggable = properties.draggable || false;
+		
+        this.draggable = properties.draggable || false;  //not implemented
         this.color = properties.color || '#000000';
         this.friction = properties.friction || cel.defaultFriction;
         this.xV = properties.xV || 0;
         this.yV = properties.yV || 0;
+		
+		this.image = properties.image || false;
 
         this.setLinearVelocity = function (xV, yV) {
             this.xV = xV;
@@ -231,6 +235,9 @@ cel = {
                 default:
                     //nothing
             }
+			if (this.image) {
+				//draw image
+			}
         };
 
         this.update = function (ctx) {
