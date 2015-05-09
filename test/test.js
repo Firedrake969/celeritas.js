@@ -27,7 +27,7 @@ setInterval(function () {
         ball2.update(ctx);
         ball1.y += 1;
         ball2.y -= 1;
-    }
+     
 }, 10);
 setTimeout(function () {
     console.log(ball1, ball2);
