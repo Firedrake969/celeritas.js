@@ -10,7 +10,8 @@ Rather than being something like [Box2D.js](https://github.com/kripken/box2d.js/
 
 ## Features
 The library is designed for easy use for any JavaScript level of expertise.  As such, objects created by it have intuitive function properties (e.g. `Body.prototype.setLinearVelocity(xV, yV)`).  As this project gets older, we plan to create more advanced features.
-## Current Features
+
+# Current Features
 - Objects
 	- Circles
 	- Squares
@@ -19,7 +20,8 @@ The library is designed for easy use for any JavaScript level of expertise.  As 
 - Gravity
 - Velocity
 - Body update
-## Planned Features
+
+# Planned Features
 - Nothing yet - suggest some in the [Issues](https://github.com/Firedrake969/celeritas.js/issues)!
 ### Documentation
 No documentation yet.  It will be put in the wiki or gh-pages when I get around to beginning it.
