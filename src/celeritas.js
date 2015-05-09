@@ -23,7 +23,7 @@ cel = {
     defaultFriction: 0.9,
     
     dist: function(x, y, x0, y0) {
-        return Math.sqrt((x -= x0) * x + (y -= y0) * y);
+		return Math.sqrt((x -= x0) * x + (y -= y0) * y);
     },
 
     Body: function (properties) { //create new entities

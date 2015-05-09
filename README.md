@@ -23,6 +23,8 @@ The library is designed for easy use for any JavaScript level of expertise.  As 
 - Directional gravity
 
 ### Planned Features
+- Config file?
+- Mouse position?
 - Suggest some in the [Issues](https://github.com/Firedrake969/celeritas.js/issues)!
 
 ### Documentation
